@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import Context from '../context/MyContext';
 
 function Login(props) {
+    const login = useContext(Context);
+    console.log(login);
     function handleClick() {
       window.location.href = '/foods';
     }
