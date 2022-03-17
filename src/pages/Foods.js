@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Card from '../components/Card';
 import Context from '../context/MyContext';
+import Footer from '../components/Footer';
 
 function Foods() {
   const {
@@ -17,6 +18,7 @@ function Foods() {
           strThumb={ e.strMealThumb }
         />
       ))}
+      <Footer />
     </div>
     );
   }
