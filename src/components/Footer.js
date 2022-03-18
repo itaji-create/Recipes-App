@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <div>
+    <footer className="footer">
       <Link to='/foods'>Foods</Link>
       <Link to='/explore'>Explore</Link>
       <Link to='/drinks'>Drinks</Link>
-    </div>
+    </footer>
   );
 }
 

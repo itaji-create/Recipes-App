@@ -1,0 +1,28 @@
+#root {
+  margin: -8px;
+  width: 360px;
+}
+
+.page-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 48px;
+}
+
+footer {
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 360px;
+  height: 40px;
+  background-color: rgb(150, 149, 149);
+}
+
+.login {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
