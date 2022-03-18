@@ -9,16 +9,18 @@ function Foods() {
   } = useContext(Context);
   console.log(Meals);
   return (
-    <div>
-      {Meals.map((e) => (
-        <Card
-          cardType="foods"
-          id={ e.idMeal }
-          name={ e.strMeal }
-          strThumb={ e.strMealThumb }
-        />
-      ))}
-      <Footer />
+    <div className='allPage'>
+      <div className="page-content">
+        {Meals.slice(0, 12).map((e) => (
+          <Card
+            cardType="foods"
+            id={ e.idMeal }
+            name={ e.strMeal }
+            strThumb={ e.strMealThumb }
+          />
+        ))}
+        <Footer />
+      </div>
     </div>
     );
   }
