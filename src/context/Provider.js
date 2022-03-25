@@ -1,24 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import fetchDrinks from '../services/fetchDrinks';
-import fetchFoods from '../services/fetchFoods';
+import React, { useState } from 'react';
 import Context from './MyContext';
 
 function Provider({ children }) {
   const [Meals, setMeals] = useState([{ idMeal: '', srtMeal: '', srtMealThumb: '' }]);
   const [login, setLogin] = useState('ola');
-  const [Drinks, setDrinks] = useState([{ idDrink: '', srtDrink: '', srtDrinkThumb: '' }])
+  const [Drinks, setDrinks] = useState([{ idDrink: '', srtDrink: '', srtDrinkThumb: '' }]);
+  const [search, setSearch] = useState('');
 
-  useEffect(() => {
-    fetchFoods().then((data) => setMeals(data));
-    fetchDrinks().then((data) => setDrinks(data));
-  }, [])
   const contextValue = {
     Meals,
     login,
     Drinks,
+    search,
     setMeals,
     setLogin,
     setDrinks,
+    setSearch,
   };
   return (
     <Context.Provider value={ contextValue }>
