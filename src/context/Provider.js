@@ -2,20 +2,23 @@ import React, { useState } from 'react';
 import Context from './MyContext';
 
 function Provider({ children }) {
-  const [Meals, setMeals] = useState([{ idMeal: '', srtMeal: '', srtMealThumb: '' }]);
+  const [meals, setMeals] = useState([{ idMeal: '', srtMeal: '', srtMealThumb: '' }]);
   const [login, setLogin] = useState('ola');
-  const [Drinks, setDrinks] = useState([{ idDrink: '', srtDrink: '', srtDrinkThumb: '' }]);
+  const [drinks, setDrinks] = useState([{ idDrink: '', srtDrink: '', srtDrinkThumb: '' }]);
   const [search, setSearch] = useState('');
+  const [details, setDetails] = useState();
 
   const contextValue = {
-    Meals,
+    meals,
     login,
-    Drinks,
+    drinks,
     search,
+    details,
     setMeals,
     setLogin,
     setDrinks,
     setSearch,
+    setDetails,
   };
   return (
     <Context.Provider value={ contextValue }>

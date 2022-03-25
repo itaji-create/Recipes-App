@@ -6,7 +6,7 @@ import Header from '../components/Header';
 import fetchFoods from '../services/fetchFoods';
 
 function Foods() {
-  const { Meals, setMeals } = useContext(Context);
+  const { meals, setMeals } = useContext(Context);
   useEffect(() => {
     fetchFoods().then((data) => setMeals(data));
   }, [setMeals]);
@@ -14,7 +14,7 @@ function Foods() {
     <div className='allPage'>
       <Header pageName='Foods' />
       <div className="page-content">
-        {Meals.slice(0, 12).map((e) => (
+        {meals.slice(0, 12).map((e) => (
           <Card
             key={ e.idMeal }
             cardType="foods"
