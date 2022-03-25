@@ -19,7 +19,7 @@ function Header(props) {
   return (
     <header>
       <div className='header-top'>
-        <Link to='/'>Profile</Link>
+        <Link to='/profile'>Profile</Link>
         <h2>{ pageName }</h2>
         <button>filters</button>
       </div>
