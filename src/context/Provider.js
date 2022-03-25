@@ -7,6 +7,8 @@ function Provider({ children }) {
   const [drinks, setDrinks] = useState([{ idDrink: '', srtDrink: '', srtDrinkThumb: '' }]);
   const [search, setSearch] = useState('');
   const [details, setDetails] = useState();
+  const [mealsCategories, setMealCategory] = useState();
+  const [drinksCategories, setDrinksCategory] = useState();
 
   const contextValue = {
     meals,
@@ -14,11 +16,15 @@ function Provider({ children }) {
     drinks,
     search,
     details,
+    mealsCategories,
+    drinksCategories,
     setMeals,
     setLogin,
     setDrinks,
     setSearch,
     setDetails,
+    setMealCategory,
+    setDrinksCategory,
   };
   return (
     <Context.Provider value={ contextValue }>
