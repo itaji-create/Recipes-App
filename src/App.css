@@ -57,3 +57,22 @@ header div {
 .header-top {
   height: 20px;
 }
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.category-button {
+  background-color: rgba(153, 205, 50, 0.781);
+  border-radius: 3px;
+  color: black;
+  font-size: 13px;
+  height: 40px;
+  margin-right: 8px;
+  margin-top: 5px;
+  padding: 5px 0;
+  width: 100px;
+}
