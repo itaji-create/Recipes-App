@@ -7,7 +7,6 @@ import { ingredients, measures } from '../services/ingredientsMeasure';
 const copy = require('clipboard-copy');
 
 function RecipeDrinkDetails() {
-//   const history = useHistory();
   const { pathname } = useLocation();
 
   const six = 6;
@@ -17,7 +16,6 @@ function RecipeDrinkDetails() {
     meals,
     details,
     setDetails,
-    favoriteIcon,
     setFavoriteIcon,
   } = useContext(Context);
 
@@ -56,11 +54,7 @@ function RecipeDrinkDetails() {
             <button
               type="button"
             >
-              <img
-                data-testid="favorite-btn"
-                src={ favoriteIcon }
-                alt="favorite"
-              />
+              Favorite
             </button>
           </div>
           <h5 data-testid="recipe-category">
@@ -72,7 +66,6 @@ function RecipeDrinkDetails() {
               details[ingredient] && (
                 <p
                   key={ ingredient }
-                  data-testid={ `${i}-ingredient-name-and-measure` }
                   className="ingredients-itens"
                 >
                   { `${details[ingredient]} --- ${details[measures(details)[i]]}` }
@@ -85,7 +78,6 @@ function RecipeDrinkDetails() {
             {meals.slice(0, six).map((meal, i) => (
               <p
                 key={ i }
-                data-testid={ `${i}-recomendation-card` }
                 className="recomendation-card"
               >
                 { meal.strMeal }
@@ -96,7 +88,6 @@ function RecipeDrinkDetails() {
             <button
                 className="fixed-recipe-btn"
                 type="button"
-                data-testid="start-recipe-btn"
             >
                 Start Recipe
             </button>
