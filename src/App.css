@@ -9,6 +9,8 @@
   justify-content: space-evenly;
   margin-bottom: 48px;
   margin-top: 78px;
+  background-color: rgba(216, 216, 216, 0.377);
+  box-shadow: inset 0 0 3em rgb(197, 197, 197);
 }
 
 footer {
