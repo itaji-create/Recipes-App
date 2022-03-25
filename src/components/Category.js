@@ -14,6 +14,7 @@ function Category(props) {
   } = useContext(Context);
 
   function onClickCategory({ target }) {
+    console.log(target.innerText);
     switch (categoryType) {
     case 'foods':
       if (selectedCategory === target.innerText || target.innerText === 'All') {
@@ -40,7 +41,6 @@ function Category(props) {
   return (
     <button
       type="button"
-      data-testid={ `${categoryName}-category-filter` }
       onClick={ onClickCategory }
       className="category-button"
     >

@@ -17,7 +17,7 @@ function Drinks() {
     <div className='allPage'>
       <Header pageName='Drinks' />
       <div className="page-content">
-        <div>
+        <div className="categories">
           <Category categoryName="All" categoryType="drinks" />
             {drinksCategories && drinksCategories.slice(0, 5).map((category) => (
               <Category
