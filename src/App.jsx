@@ -8,6 +8,7 @@ import Profile from './pages/Profile';
 import RecipeMealDetails from './pages/RecipeMealDetails';
 import RecipeDrinkDetails from './pages/RecipeDrinkDetails';
 import Explore from './pages/Explore';
+import ExploreFoods from './pages/ExploreFoods';
 
 function App() {
   const { pathname } = useLocation();
@@ -24,6 +25,7 @@ function App() {
         <Route exact path={ `foods/${idNumbers}` } element={ <RecipeMealDetails /> } />
         <Route exact path={ `drinks/${idNumbers}` } element={ <RecipeDrinkDetails /> } />
         <Route exact path="/explore" element={ <Explore /> } />
+        <Route exact path="/explore/foods" element={ <ExploreFoods /> } />
       </Routes>
     </Provider>
   );
