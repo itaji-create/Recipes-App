@@ -4,9 +4,9 @@ import Header from "../components/Header";
 import fetchFoods from "../services/fetchFoods";
 
 function ExploreFoods() {
-  const history = useNavigate();
+  const navigate = useNavigate();
   function exploreMeal() {
-    fetchFoods('random.php').then((meal) => history(`/foods/${meal[0].idMeal}`));
+    fetchFoods('random.php').then((meal) => navigate(`/foods/${meal[0].idMeal}`));
   }
   return (
     <div className="allPage">
