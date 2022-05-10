@@ -3,8 +3,9 @@ import { Link, useLocation } from 'react-router-dom';
 import Context from '../context/MyContext';
 import fetchFoods from '../services/fetchFoods';
 import { ingredients, measures } from '../services/ingredientsMeasure';
+import Footer from '../components/Footer';
 
-// const copy = require('clipboard-copy');
+const copy = require('clipboard-copy');
 
 function RecipeMealDetails() {
   const { pathname } = useLocation();
@@ -22,13 +23,13 @@ function RecipeMealDetails() {
     });
   }, [idNumbers, setDetails]);
 
-//   function copyToClipboard() {
-//     const textField = document.createElement('p');
-//     const buttons = document.getElementById('share-favorite-btn');
-//     textField.innerText = 'Link copied!';
-//     buttons.appendChild(textField);
-//     copy(`http://localhost:3000${pathname}`);
-//   }
+  function copyToClipboard() {
+    const textField = document.createElement('p');
+    const buttons = document.getElementById('share-favorite-btn');
+    textField.innerText = 'Link copied!';
+    buttons.appendChild(textField);
+    copy(`http://localhost:3000${pathname}`);
+  }
 
   return (
     <div className="allPage">
@@ -45,7 +46,7 @@ function RecipeMealDetails() {
             <button
               type="button"
               data-testid="share-btn"
-            //   onClick={ copyToClipboard }
+              onClick={ copyToClipboard }
             >
               Copy
             </button>
@@ -95,6 +96,7 @@ function RecipeMealDetails() {
             </button>
           </Link>
         </div>)}
+        <Footer />
     </div>
   );
 }

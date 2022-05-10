@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Context from './MyContext';
+import fetchDrinks from "../services/fetchDrinks";
+import fetchDrinksCategory from "../services/fetchDrinksCategory";
 
 function Provider({ children }) {
   const [meals, setMeals] = useState([{ idMeal: '', srtMeal: '', srtMealThumb: '' }]);
@@ -10,6 +12,12 @@ function Provider({ children }) {
   const [mealsCategories, setMealCategory] = useState();
   const [drinksCategories, setDrinksCategory] = useState();
   const [selectedCategory, setCategory] = useState();
+  const [ingredients, setIngredients] = useState([]);
+
+  useEffect(() => {
+    fetchDrinks().then((data) => setDrinks(data));
+    fetchDrinksCategory().then((category) => setDrinksCategory(category.drinks));
+  }, [setDrinks, setDrinksCategory]);
 
   const contextValue = {
     meals,
@@ -17,6 +25,7 @@ function Provider({ children }) {
     drinks,
     search,
     details,
+    ingredients,
     mealsCategories,
     drinksCategories,
     selectedCategory,
@@ -28,6 +37,7 @@ function Provider({ children }) {
     setMealCategory,
     setDrinksCategory,
     setCategory,
+    setIngredients,
   };
   return (
     <Context.Provider value={ contextValue }>
