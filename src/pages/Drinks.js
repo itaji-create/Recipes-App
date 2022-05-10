@@ -27,15 +27,17 @@ function Drinks() {
               />
             ))}
         </div>
-        {drinks.slice(0, 12).map((e) => (
-          <Card
-            key={ e.idDrink }
-            cardType="drinks"
-            id={ e.idDrink }
-            name={ e.strDrink }
-            strThumb={ e.strDrinkThumb }
-          />
-        ))}
+        <div className="recipes-content">
+          {drinks.map((e) => (
+            <Card
+              key={ e.idDrink }
+              cardType="drinks"
+              id={ e.idDrink }
+              name={ e.strDrink }
+              strThumb={ e.strDrinkThumb }
+            />
+          ))}
+        </div>
       </div>
       <Footer />
     </div>

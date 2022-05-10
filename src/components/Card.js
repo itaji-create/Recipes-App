@@ -14,7 +14,7 @@ function Card(props) {
         src={ strThumb }
         alt={ name }
       />
-      <p>{ name }</p>
+      <p style={ { maxWidth: '150px' } }>{ name }</p>
     </Link>
   );
 }
