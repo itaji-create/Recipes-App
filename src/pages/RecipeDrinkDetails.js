@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Context from '../context/MyContext';
 import fetchDrinks from '../services/fetchDrinks';
+import Footer from '../components/Footer';
 import { ingredients, measures } from '../services/ingredientsMeasure';
 
 const copy = require('clipboard-copy');
@@ -34,11 +35,10 @@ function RecipeDrinkDetails() {
   }
 
   return (
-    <div id="aiai" className="allPage">
+    <div className="allPage">
       {details && (
         <div className="recipe-details">
           <img
-            data-testid="recipe-photo"
             alt="element sas"
             src={ details.strDrinkThumb }
             style={ { width: '300px' } }
@@ -93,6 +93,7 @@ function RecipeDrinkDetails() {
             </button>
           </Link>
         </div>)}
+        <Footer />
     </div>
   );
 }

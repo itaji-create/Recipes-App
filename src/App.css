@@ -97,6 +97,10 @@ header div {
   justify-content: space-evenly;
 }
 
+.recipe-details {
+  text-align: center;
+}
+
 @media (min-width: 700px) {
   .page-content {
     display: block;

@@ -1,18 +1,13 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
 import Context from "../context/MyContext";
 import Header from '../components/Header';
-import fetchDrinks from "../services/fetchDrinks";
 import Category from "../components/Category";
-import fetchDrinksCategory from "../services/fetchDrinksCategory";
 
 function Drinks() {
-  const { drinks, setDrinks, setDrinksCategory, drinksCategories } = useContext(Context);
-  useEffect(() => {
-    fetchDrinks().then((data) => setDrinks(data));
-    fetchDrinksCategory().then((category) => setDrinksCategory(category.drinks));
-  }, [setDrinks, setDrinksCategory]);
+  const { drinks, drinksCategories } = useContext(Context);
+
   return (
     <div className='allPage'>
       <Header pageName='Drinks' />
