@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Context from './MyContext';
 import fetchDrinks from "../services/fetchDrinks";
-import fetchDrinksCategory from "../services/fetchDrinksCategory";
 
 function Provider({ children }) {
   const [meals, setMeals] = useState([{ idMeal: '', srtMeal: '', srtMealThumb: '' }]);
@@ -9,15 +8,16 @@ function Provider({ children }) {
   const [drinks, setDrinks] = useState([{ idDrink: '', srtDrink: '', srtDrinkThumb: '' }]);
   const [search, setSearch] = useState('');
   const [details, setDetails] = useState();
-  const [mealsCategories, setMealCategory] = useState();
-  const [drinksCategories, setDrinksCategory] = useState();
+  const [categories, setCategories] = useState([{ strCategory: '' }])
   const [selectedCategory, setCategory] = useState();
   const [ingredients, setIngredients] = useState([]);
+  const [sidebar, setSidebar] = useState(false);
+  const [searchbar, setSearchbar] = useState(false);
+  const [searchValue, setSearchValue] = useState('');
 
   useEffect(() => {
     fetchDrinks().then((data) => setDrinks(data));
-    fetchDrinksCategory().then((category) => setDrinksCategory(category.drinks));
-  }, [setDrinks, setDrinksCategory]);
+  }, [setDrinks]);
 
   const contextValue = {
     meals,
@@ -25,18 +25,22 @@ function Provider({ children }) {
     drinks,
     search,
     details,
+    sidebar,
+    categories,
     ingredients,
-    mealsCategories,
-    drinksCategories,
     selectedCategory,
+    searchValue,
+    searchbar,
+    setSearchbar,
+    setSearchValue,
     setMeals,
     setLogin,
     setDrinks,
     setSearch,
     setDetails,
-    setMealCategory,
-    setDrinksCategory,
+    setCategories,
     setCategory,
+    setSidebar,
     setIngredients,
   };
   return (

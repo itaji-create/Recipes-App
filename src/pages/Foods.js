@@ -5,28 +5,18 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import fetchFoods from '../services/fetchFoods';
 import fetchMealsCategory from '../services/fetchMealsCategory';
-import Category from '../components/Category';
 
 function Foods() {
-  const { meals, setMeals, mealsCategories, setMealCategory } = useContext(Context);
+  const { meals, setMeals, setCategories } = useContext(Context);
   useEffect(() => {
     fetchFoods().then((data) => setMeals(data));
-    fetchMealsCategory().then((category) => setMealCategory(category.meals));
-  }, [setMeals, setMealCategory]);
+    fetchMealsCategory().then((category) => setCategories(category.meals));
+  }, [setMeals, setCategories]);
+
   return (
     <div className='allPage'>
-      <Header pageName='Foods' />
+      <Header filters='true' pageName='Foods' />
       <div className="page-content">
-        <div className="categories">
-          <Category categoryName="All" categoryType="foods" />
-          {mealsCategories && mealsCategories.slice(0, 5).map((category) => (
-            <Category
-              key={ category.strCategory }
-              categoryName={ category.strCategory }
-              categoryType="foods"
-            />
-          ))}
-        </div>
         <div className="recipes-content">
           {meals.map((e) => (
             <Card

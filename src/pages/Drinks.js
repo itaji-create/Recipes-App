@@ -1,27 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
 import Context from "../context/MyContext";
 import Header from '../components/Header';
-import Category from "../components/Category";
+import fetchDrinksCategory from "../services/fetchDrinksCategory";
 
 function Drinks() {
-  const { drinks, drinksCategories } = useContext(Context);
+  const { drinks, setCategories } = useContext(Context);
+  useEffect(() => {
+    fetchDrinksCategory().then((category) => setCategories(category.drinks));
+  }, [setCategories]);
 
   return (
     <div className='allPage'>
-      <Header pageName='Drinks' />
+      <Header filters='true' pageName='Drinks' />
       <div className="page-content">
-        <div className="categories">
-          <Category categoryName="All" categoryType="drinks" />
-            {drinksCategories && drinksCategories.slice(0, 5).map((category) => (
-              <Category
-                key={ category.strCategory }
-                categoryName={ category.strCategory }
-                categoryType="drinks"
-              />
-            ))}
-        </div>
         <div className="recipes-content">
           {drinks.map((e) => (
             <Card
