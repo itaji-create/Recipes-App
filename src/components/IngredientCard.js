@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PropTypes from 'prop-types';
 import fetchFoods from '../services/fetchFoods';
 import Context from '../context/MyContext';
@@ -14,26 +14,27 @@ function IngredientCard(props) {
     if (cardType === 'foods') {
       fetchFoods(`filter.php?i=${target.name}`).then((result) => setMeals(result))
       .then(navigate(`/${cardType}`));
-      
     }
+
     if (cardType === 'drinks') {
-      fetchDrinks(`filter.php?i=${target.name}`).then((result) => setDrinks(result))
-      .then(navigate(`/${cardType}`));
-    }
+      fetchDrinks(`filter.php?i=${target.name}`).then((result) => setDrinks(result));    }
   }
   return (
-    <div
-      className="card"
-      name={ ingredient }
-      onClick={ handleClick }
-    >
-      <img
-        width="150px"
-        alt="ingredient"
+    <div className="card">
+      <Link
         name={ ingredient }
-        src={ `https://www.${fetchType}.com/images/ingredients/${ingredient}-Small.png` }
-      />
-      {title}
+        className="links"
+        onClick={ handleClick }
+        to={'/'+cardType}
+      >
+        <img
+          width="150px"
+          alt="ingredient"
+          name={ ingredient }
+          src={ `https://www.${fetchType}.com/images/ingredients/${ingredient}-Small.png` }
+        />
+        <h2>{title}</h2>
+      </Link>
     </div>
   );
 }

@@ -17,17 +17,15 @@ function ExploreDrinksIngredients() {
   }, [setIngredients]);
 
   const ingredientsLoaded = ingredients.length > 0;
-//   const number = 12;
   return (
     <div className="allPage">
       <Header pageName="Explore Ingredients" />
-      <div style={{ marginTop: '80px', marginBottom: '35px' }}>
+      <div>
         {ingredientsLoaded && ingredients
-          .map(({ strIngredient1 }, index) => (
+          .map(({ strIngredient1 }) => (
             <IngredientCard
               ingredient={ strIngredient1 }
               key={ strIngredient1 }
-              index={ index }
               title={ strIngredient1 }
               cardType="drinks"
               fetchType="thecocktaildb"

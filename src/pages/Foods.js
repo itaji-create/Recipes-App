@@ -3,13 +3,11 @@ import Card from '../components/Card';
 import Context from '../context/MyContext';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import fetchFoods from '../services/fetchFoods';
 import fetchMealsCategory from '../services/fetchMealsCategory';
 
 function Foods() {
   const { meals, setMeals, setCategories } = useContext(Context);
   useEffect(() => {
-    fetchFoods().then((data) => setMeals(data));
     fetchMealsCategory().then((category) => setCategories(category.meals));
   }, [setMeals, setCategories]);
 

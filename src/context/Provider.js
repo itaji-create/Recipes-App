@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Context from './MyContext';
 import fetchDrinks from "../services/fetchDrinks";
+import fetchFoods from '../services/fetchFoods';
 
 function Provider({ children }) {
   const [meals, setMeals] = useState([{ idMeal: '', srtMeal: '', srtMealThumb: '' }]);
@@ -16,6 +17,7 @@ function Provider({ children }) {
   const [searchValue, setSearchValue] = useState('');
 
   useEffect(() => {
+    fetchFoods().then((data) => setMeals(data));
     fetchDrinks().then((data) => setDrinks(data));
   }, [setDrinks]);
 

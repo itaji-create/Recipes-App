@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import fetchFoods from "../services/fetchFoods";
+import Footer from "../components/Footer";
 
 function ExploreFoods() {
   const navigate = useNavigate();
@@ -26,6 +27,7 @@ function ExploreFoods() {
             Surprise me!
           </button>
       </div>
+      <Footer />
     </div>    
     );
 }
