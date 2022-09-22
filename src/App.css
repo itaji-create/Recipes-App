@@ -104,6 +104,11 @@ header div {
   text-align: center;
 }
 
+#instructions {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
 .filters-input {
   display: flex;
 }
@@ -137,5 +142,13 @@ header div {
   .card {
     margin-right: 35px;
     margin-bottom: 10px;
+  }
+  #instructions {
+    width: 500px;
+  }
+  .recipe-details {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
   }
 }

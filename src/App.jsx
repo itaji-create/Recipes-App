@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
 import Foods from './pages/Foods';
 import Provider from './context/Provider';
@@ -22,7 +22,7 @@ function App() {
   return (
     <Provider>
       <Routes>
-        <Route exact path="/" element={ <Login /> } />
+        <Route exact path="/" element={ <Navigate to="/foods" /> } />
         <Route exact path="/foods" element={ <Foods /> } />
         <Route exact path="/drinks" element={ <Drinks /> } />
         <Route exact path="/profile" element={ <Profile /> } />
