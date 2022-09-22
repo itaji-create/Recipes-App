@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Boas vindas ao repositório do projeto de Front-End Recipes!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<summary><strong>Link do projeto no Heroku</strong></summary><br />
 
-## Available Scripts
+  - http://recipes-99app.herokuapp.com/
 
-In the project directory, you can run:
+<summary><strong> Iniciando o projeto</strong></summary><br />
 
-### `npm start`
+1. Clone o projeto com o comando:
+    * `git clone git@github.com:itaji-create/recipes-app.git`
+    * Entre na pasta do projeto;
+2. Instale as dependências:
+    * `npm install`
+3. Inicie o projeto:
+    * `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<summary><strong>Principais dependências do projeto</strong></summary><br />
 
-### `npm test`
+* dependencies
+    - react
+    - react-dom
+    - react-router-dom
+    - use-history
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+<summary><strong>Configurações mínimas que sua máquina deve ter</strong></summary><br />
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Sistema Operacional Linux
+2. Node
+    * `deve ter versão igual ou superior à 16`
+    * Rode os comandos abaixo para instalar a versão correta do node:
+        * `nvm install 16 --lts`
+        * `nvm use 16`
+		* `nvm alias default 16`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<h4>Neste projeto. Nele os usuários poderão:</h4>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Fazer login
 
-### `npm run eject`
+2. Explorar receitas de comidas ou bebidas.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Filtrar receitas por categoria.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Ver detalhes de receita de comida ou bebida
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5. Salvar receitas já feitas;
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+6. Salvar receitas na página de favoritos;
 
-## Learn More
+7. Pesquisar receita por título;
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+8. Explorar receitas de comidas por nacionalidade;
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+9. Explorar receitas de comidas ou bebidas por ingrediente;
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+10. Receber uma receita de comida ou bebida misteriosa;
