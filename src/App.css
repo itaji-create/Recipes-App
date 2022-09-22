@@ -121,6 +121,10 @@ header div {
   margin-left: 10px;
 }
 
+#filterNationalite {
+  align-self: flex-start;
+}
+
 @media (min-width: 700px) {
   .page-content {
     display: block;

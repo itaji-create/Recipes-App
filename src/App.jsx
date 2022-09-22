@@ -12,6 +12,7 @@ import ExploreFoods from './pages/ExploreFoods';
 import ExploreDrinks from './pages/ExploreDrinks';
 import ExploreDrinksIngredients from './pages/ExploreDrinksIngredients';
 import ExploreFoodsIngredients from './pages/ExploreFoodsIngredients';
+import ExploreNationalite from './pages/ExploreFoodsNationalite';
 
 function App() {
   const { pathname } = useLocation();
@@ -35,6 +36,11 @@ function App() {
           exact
           path="/explore/drinks/ingredients"
           element={ <ExploreDrinksIngredients /> }
+        />
+        <Route
+          exact
+          path="/explore/foods/nationalities"
+          element={ <ExploreNationalite /> }
         />
       </Routes>
     </Provider>

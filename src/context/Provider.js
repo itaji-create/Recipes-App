@@ -15,6 +15,8 @@ function Provider({ children }) {
   const [sidebar, setSidebar] = useState(false);
   const [searchbar, setSearchbar] = useState(false);
   const [searchValue, setSearchValue] = useState('');
+  const [mealsNationalite, setMealsNationalite] = useState();
+  const [selectValue, setSelectValue] = useState('All');
 
   useEffect(() => {
     fetchFoods().then((data) => setMeals(data));
@@ -33,6 +35,8 @@ function Provider({ children }) {
     selectedCategory,
     searchValue,
     searchbar,
+    mealsNationalite,
+    selectValue,
     setSearchbar,
     setSearchValue,
     setMeals,
@@ -44,6 +48,8 @@ function Provider({ children }) {
     setCategory,
     setSidebar,
     setIngredients,
+    setMealsNationalite,
+    setSelectValue,
   };
   return (
     <Context.Provider value={ contextValue }>
