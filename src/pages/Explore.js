@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 function Explore() {
   return (
     <div className="allPage">
-      <Header filters='true' pageName="Explore" />
+      <Header filters='false' pageName="Explore" />
       <div>
         <Link to="/explore/foods">
           <Button

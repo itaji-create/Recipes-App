@@ -27,7 +27,7 @@ function ExploreNationalite() {
 
   return (
     <div id="explore-nationalite" >
-      <Header filters='true' pageName="Explore Nationalite" />
+      <Header filters='false' pageName="Explore Nationalite" />
       <div id="filterNationalite">
         <Form.Select
           value={ selectValue }

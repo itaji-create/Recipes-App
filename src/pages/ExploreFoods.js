@@ -12,7 +12,7 @@ function ExploreFoods() {
   }
   return (
     <div className="allPage">
-      <Header pageName="Explore Foods" filters='true' />
+      <Header pageName="Explore Foods" filters='false' />
       <div className="page-content">
         <Link to="/explore/foods/ingredients">
           <Button

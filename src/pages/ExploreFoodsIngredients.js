@@ -16,7 +16,7 @@ function ExploreFoodsIngredients(params) {
 
   return (
     <div className="allPage">
-      <Header filters='true' pageName="Explore Ingredients" />
+      <Header filters='false' pageName="Explore Ingredients" />
       <div>
         {ingredientsLoaded && ingredients.map(({ strIngredient }) => 
           <IngredientCard

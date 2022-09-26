@@ -5,7 +5,6 @@ import fetchFoods from '../services/fetchFoods';
 import { ingredients, measures } from '../services/ingredientsMeasure';
 import Footer from '../components/Footer';
 import copyToClipboard from '../utils/copyToClipboard';
-import Header from '../components/Header';
 
 function RecipeMealDetails() {
   const { pathname } = useLocation();
@@ -25,7 +24,6 @@ function RecipeMealDetails() {
 
   return (
     <div>
-      <Header filters='true' pageName='details' />
       {details && (
         <div className="recipe-details">
           <img
