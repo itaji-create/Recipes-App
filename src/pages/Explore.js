@@ -12,6 +12,7 @@ function Explore() {
           <button
             type="button"
             className="explorer-item"
+            data-testid="explore-food-btn"
           >
             <img width={ '147px' } alt="Food Explorer" src={require('../images/explorer-food.jpg')} />
           </button>
@@ -20,6 +21,7 @@ function Explore() {
           <button
             type="button"
             className="explorer-item"
+            data-testid="explore-drink-btn"
           >
             <img width={ '140px' } alt="Drink Explorer" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdGHRKOvyNolPLTsyVV2lbYdITSPnMI8ff3Q&usqp=CAU" />
           </button>

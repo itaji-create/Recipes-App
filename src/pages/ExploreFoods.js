@@ -14,16 +14,16 @@ function ExploreFoods() {
       <Header pageName="Explore Foods" />
       <div className="page-content">
         <Link to="/explore/foods/ingredients">
-          <button>
+          <button data-testid="food-ingredient-btn">
             By Ingredient
           </button>
         </Link>
         <Link to="/explore/foods/nationalities">
-          <button>
+          <button data-testid="food-nationality-btn">
             By Nationality
           </button>
         </Link>
-          <button onClick={ exploreMeal }>
+          <button data-testid="food-surprise-btn" onClick={ exploreMeal }>
             Surprise me!
           </button>
       </div>

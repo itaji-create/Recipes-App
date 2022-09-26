@@ -10,8 +10,12 @@ function Footer() {
       <Link to='/foods'>
         <img src={ mealIcon } alt="mealicon" data-testid="food-bottom-btn" />
       </Link>
-      <Link to='/explore'><img src={ exploreIcon } alt="exploreicon" /></Link>
-      <Link to='/drinks'><img src={ drinkIcon } alt="Drinks" /></Link>
+      <Link to='/explore'>
+        <img src={ exploreIcon } data-testid="explore-bottom-btn" alt="explore icon" />
+      </Link>
+      <Link to='/drinks'>
+        <img src={ drinkIcon } data-testid="drink-bottom-btn" alt="Drinks icon" />
+      </Link>
     </footer>
   );
 }

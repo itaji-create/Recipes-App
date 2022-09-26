@@ -19,6 +19,7 @@ function ExploreDrinks() {
           type="button"
           onClick={ () => navigate('/explore/drinks/ingredients') }
           className="profile-item"
+          data-testid="drink-ingredient-btn"
         >
           By Ingredient
         </button>
@@ -26,6 +27,7 @@ function ExploreDrinks() {
           type="button"
           onClick={ exploreDrink }
           className="profile-item"
+          data-testid="drink-surprise-btn"
         >
           Surprise me!
         </button>
