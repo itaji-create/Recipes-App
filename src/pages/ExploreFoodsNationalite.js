@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import Form from 'react-bootstrap/Form';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Context from '../context/MyContext';
@@ -25,17 +26,18 @@ function ExploreNationalite() {
   }, []);
 
   return (
-    <div className='allPage'>
+    <div id="explore-nationalite" >
       <Header pageName="Explore Nationalite" />
       <div id="filterNationalite">
-        <select
+        <Form.Select
           value={ selectValue }
           onChange={ handleSelect }
         >
+          <option>Select Nationality</option>
           { mealsNationalite && mealsNationalite.map((country) => (
             <option key={ country.strArea }>{ country.strArea }</option>
           ))}
-        </select>
+        </Form.Select>
       </div>
       <div className="recipes-content">
         { meals && meals.map((e) => (

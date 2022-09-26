@@ -1,5 +1,7 @@
 body {
   margin-left: 0px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .allPage {
@@ -126,8 +128,12 @@ header div {
   margin-left: 10px;
 }
 
+#explore-nationalite {
+  margin-top: 50px;
+}
+
 #filterNationalite {
-  align-self: flex-start;
+  margin-bottom: 10px;
 }
 
 @media (min-width: 700px) {
