@@ -1,11 +1,10 @@
 import React, { useEffect, useContext } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Context from '../context/MyContext';
 import fetchFoods from '../services/fetchFoods';
 import { ingredients, measures } from '../services/ingredientsMeasure';
 import Footer from '../components/Footer';
-
-const copy = require('clipboard-copy');
+import copyToClipboard from '../utils/copyToClipboard';
 
 function RecipeMealDetails() {
   const { pathname } = useLocation();
@@ -23,14 +22,6 @@ function RecipeMealDetails() {
     });
   }, [idNumbers, setDetails]);
 
-  function copyToClipboard() {
-    const textField = document.createElement('p');
-    const buttons = document.getElementById('share-favorite-btn');
-    textField.innerText = 'Link copied!';
-    buttons.appendChild(textField);
-    copy(`https://recipes-99app.herokuapp.com${pathname}`);
-  }
-
   return (
     <div>
       {details && (
@@ -44,11 +35,11 @@ function RecipeMealDetails() {
           <div>
             <h1 data-testid="recipe-title">{ details.strMeal }</h1>
             <h5 data-testid="recipe-category">{ details.strCategory }</h5>
-            <div id="share-favorite-btn">
+            <div id="share-favorite">
               <button
                 type="button"
                 data-testid="share-btn"
-                onClick={ copyToClipboard }
+                onClick={ () => copyToClipboard(pathname) }
               >
                 Copy
               </button>
