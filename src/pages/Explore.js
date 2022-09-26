@@ -2,29 +2,30 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import Button from 'react-bootstrap/Button';
 
 function Explore() {
   return (
     <div className="allPage">
-      <Header pageName="Explore" />
+      <Header filters='true' pageName="Explore" />
       <div>
         <Link to="/explore/foods">
-          <button
-            type="button"
-            className="explorer-item"
+          <Button
+            variant="secondary"
+            size="lg"
             data-testid="explore-food-btn"
           >
             Food Explorer
-          </button>
+          </Button>
         </Link>
         <Link to="/explore/drinks">
-          <button
-            type="button"
-            className="explorer-item"
+          <Button
+            variant="secondary"
+            size="lg"
             data-testid="explore-drink-btn"
           >
             Drink Explorer
-          </button>
+          </Button>
         </Link>
       </div>
       <Footer />

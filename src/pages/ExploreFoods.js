@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import fetchFoods from "../services/fetchFoods";
 import Footer from "../components/Footer";
+import Button from 'react-bootstrap/Button';
 
 function ExploreFoods() {
   const navigate = useNavigate();
@@ -11,21 +12,34 @@ function ExploreFoods() {
   }
   return (
     <div className="allPage">
-      <Header pageName="Explore Foods" />
+      <Header pageName="Explore Foods" filters='true' />
       <div className="page-content">
         <Link to="/explore/foods/ingredients">
-          <button data-testid="food-ingredient-btn">
+          <Button
+            data-testid="food-ingredient-btn"
+            variant="secondary"
+            size="lg"
+          >
             By Ingredient
-          </button>
+          </Button>
         </Link>
         <Link to="/explore/foods/nationalities">
-          <button data-testid="food-nationality-btn">
+          <Button
+            data-testid="food-nationality-btn"
+            variant="secondary"
+            size="lg"
+          >
             By Nationality
-          </button>
+          </Button>
         </Link>
-          <button data-testid="food-surprise-btn" onClick={ exploreMeal }>
+          <Button
+            data-testid="food-surprise-btn"
+            onClick={ exploreMeal }
+            variant="secondary"
+            size="lg"
+          >
             Surprise me!
-          </button>
+          </Button>
       </div>
       <Footer />
     </div>    

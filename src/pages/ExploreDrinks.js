@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import fetchDrinks from '../services/fetchDrinks';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Button from 'react-bootstrap/Button';
 
 function ExploreDrinks() {
     const navigate = useNavigate();
@@ -13,24 +14,24 @@ function ExploreDrinks() {
   }
   return (
     <div className="allPage">
-      <Header pageName="Explore Drinks" />
+      <Header filters='true' pageName="Explore Drinks" />
       <div className="explorer-buttons">
-        <button
-          type="button"
+        <Button
           onClick={ () => navigate('/explore/drinks/ingredients') }
-          className="profile-item"
           data-testid="drink-ingredient-btn"
+          variant="secondary"
+          size="lg"
         >
           By Ingredient
-        </button>
-        <button
-          type="button"
+        </Button>
+        <Button
           onClick={ exploreDrink }
-          className="profile-item"
           data-testid="drink-surprise-btn"
+          variant="secondary"
+          size="lg"
         >
           Surprise me!
-        </button>
+        </Button>
       </div>
       <Footer />
     </div>

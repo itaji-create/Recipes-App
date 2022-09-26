@@ -6,7 +6,7 @@ import Header from "../components/Header";
 function Profile() {
   return (
     <div>
-      <Header pageName="Profile"/>
+      <Header filters='true' pageName="Profile"/>
       <div className="page-content">
         <Link to="/done-recipes">
             <button

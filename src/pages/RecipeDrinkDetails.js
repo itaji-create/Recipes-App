@@ -5,6 +5,7 @@ import fetchDrinks from '../services/fetchDrinks';
 import Footer from '../components/Footer';
 import { ingredients, measures } from '../services/ingredientsMeasure';
 import copyToClipboard from '../utils/copyToClipboard';
+import Header from '../components/Header';
 
 function RecipeDrinkDetails() {
   const { pathname } = useLocation();
@@ -25,6 +26,7 @@ function RecipeDrinkDetails() {
 
   return (
     <div>
+      <Header filters='true' pageName='details' />
       {details && (
         <div className="recipe-details">
           <img

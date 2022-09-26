@@ -1,6 +1,5 @@
 import './App.css';
 import { Route, Routes, useLocation, Navigate } from 'react-router-dom';
-import Login from './pages/Login';
 import Foods from './pages/Foods';
 import Provider from './context/Provider';
 import Drinks from './pages/Drinks';

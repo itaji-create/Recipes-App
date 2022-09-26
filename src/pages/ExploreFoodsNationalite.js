@@ -23,11 +23,11 @@ function ExploreNationalite() {
 
   useEffect(() => {
     fetchFoods('list.php?a=list').then((e) => setMealsNationalite(e));
-  }, []);
+  }, [setMealsNationalite]);
 
   return (
     <div id="explore-nationalite" >
-      <Header pageName="Explore Nationalite" />
+      <Header filters='true' pageName="Explore Nationalite" />
       <div id="filterNationalite">
         <Form.Select
           value={ selectValue }

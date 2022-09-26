@@ -36,46 +36,6 @@ footer {
   margin-top: 50px;
 }
 
-header {
-  text-align: center;
-  padding: 10px;
-  position: fixed;
-  top: 0;
-  background-color: rgba(150, 149, 149, 0.671);
-  width: 100%;
-}
-
-header input {
-  width: 100%;
-  border-radius: 30px;
-}
-
-header button {
-  border-radius: 5px;
-}
-
-header div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 30px;
-}
-.header-top {
-  height: 20px;
-}
-
-.category-button {
-  background-color: rgba(153, 205, 50, 0.781);
-  border-radius: 3px;
-  color: black;
-  font-size: 13px;
-  height: 40px;
-  margin-right: 8px;
-  margin-top: 5px;
-  padding: 5px 0;
-  width: 100px;
-}
-
 .card {
   text-decoration: none;
   color: black;
