@@ -3,30 +3,43 @@ import profileIcon from '../images/profileIcon.svg';
 import { Link } from "react-router-dom";
 import Sidebar from './Sidebar';
 import SearchBar from './SearchBar';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import Offcanvas from 'react-bootstrap/Offcanvas';
 
 function Header(props) {
-  const { pageName, filters } = props
+  const { pageName } = props
 
   return (
-    <header>
-      <div className='header-top'>
-        <Link to='/profile'>
-          <input
-            type="image"
-            data-testid="profile-top-btn"
-            src={ profileIcon }
-            alt="Foto de perfil"
-          />
-        </Link>
-        <h2>{ pageName }</h2>
-        {filters ? (
-          <div>
-            <SearchBar typeRecipe= { pageName } />
-            <Sidebar page={ pageName } />
-          </div>
-        ): <p/>}
-      </div>
-    </header>
+    <>
+        <Navbar bg="light" fixed={ 'top' } expand={'lg'} className="mb-3">
+          <Container fluid>
+            <img alt="profile icon" src={ profileIcon } />
+            <Navbar.Brand href="#">{ pageName }</Navbar.Brand>
+            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-lg`} />
+            <Navbar.Offcanvas
+              id={`offcanvasNavbar-expand-lg`}
+              aria-labelledby={`offcanvasNavbarLabel-expand-lg`}
+              placement="end"
+            >
+              <Offcanvas.Header closeButton>
+                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-lg`}>
+                  Filters
+                </Offcanvas.Title>
+              </Offcanvas.Header>
+              <Offcanvas.Body>
+                <SearchBar page={ pageName } />
+                <Nav className="justify-content-end flex-grow-1 pe-3">
+                  <Sidebar page={ pageName } />
+                </Nav>
+              </Offcanvas.Body>
+            </Navbar.Offcanvas>
+          </Container>
+        </Navbar>
+    </>
   );
 }
 

@@ -5,9 +5,15 @@ import Context from '../context/MyContext';
 import '../App.css';
 import fetchFoods from '../services/fetchFoods';
 import fetchDrinks from '../services/fetchDrinks';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function SearchBar(props) {
-  const { typeRecipe } = props;
+  const { page } = props;
   const navigate = useNavigate();
 
   const {
@@ -41,7 +47,7 @@ function SearchBar(props) {
   const clickRender = () => {
     setSearchbar(!searchbar);
     setSidebar(false)
-    switch (typeRecipe) {
+    switch (page) {
     case 'Foods':
         fetchFoods(`search.php?s=${searchValue}`)
           .then((i) => errorFinder(setMeals(i), i, 'foods', 'idMeal'));
@@ -56,25 +62,21 @@ function SearchBar(props) {
   };
 
   return (
-    <div>
-      {searchbar && (
-        <div>
-          <input
-            type="text"
-            placeholder={ `Search for a ${typeRecipe}` }
-            value={ searchValue }
-            onChange={ handleChange }
-            className="search-input"
-          />
-        </div>
-      )}
-      <button onClick={ clickRender } type="button">Search</button>
-    </div>
+    <Form className="d-flex">
+      <Form.Control
+        type="text"
+        placeholder={ `Search for ${page}` }
+        value={ searchValue }
+        onChange={ handleChange }
+        className="search-input"
+      />
+      <Button onClick={ clickRender } variant="outline-success" type="button">Search</Button>
+    </Form>
   );
 }
 
 SearchBar.propTypes = {
-  typeRecipe: propTypes.string.isRequired,
+  page: propTypes.string.isRequired,
 };
 
 export default SearchBar;

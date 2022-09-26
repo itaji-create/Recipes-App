@@ -2,24 +2,20 @@ import React, { useContext } from "react";
 import Context from "../context/MyContext";
 import fetchDrinks from '../services/fetchDrinks';
 import fetchFoods from '../services/fetchFoods';
+import Container from 'react-bootstrap/Container';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function Sidebar(props) {
   const {
     setSidebar,
-    sidebar,
     categories,
     setMeals,
     setDrinks,
     setCategory,
-    setSearchbar,
   } = useContext(Context);
 
   const { page } = props;
 
-  const showSidebar = () => {
-    setSidebar(!sidebar);
-    setSearchbar(false);
-  };
   function setFilters({ target }) {
     const filters = target.innerText;
     switch (page) {
@@ -49,22 +45,14 @@ function Sidebar(props) {
 
   
   return (
-    <div className="sidebar">
-      <button
-        type="button"
-        onClick={ showSidebar }
-      >
-        Filter
-      </button>
-      {sidebar && (
-        <div id="categories">
-          <h3 onClick={ setFilters } className="category">All categories</h3>
-          {categories.map((e) => (
-            <h3 onClick={ setFilters } className="category">{ e.strCategory }</h3>
-          ))}
-        </div>
-      )}
-    </div>
+    <Container fluid>
+          <NavDropdown title="Categories" id="navbarScrollingDropdown">
+            <NavDropdown.Item onClick={ setFilters } className="category">All categories</NavDropdown.Item>
+            {categories.map((e) => (
+              <NavDropdown.Item onClick={ setFilters } className="category">{ e.strCategory }</NavDropdown.Item>
+            ))}
+          </NavDropdown>
+    </Container>
   )
 }
 
