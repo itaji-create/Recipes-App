@@ -3,7 +3,7 @@ import Context from "../context/MyContext";
 import fetchDrinks from '../services/fetchDrinks';
 import fetchFoods from '../services/fetchFoods';
 import Container from 'react-bootstrap/Container';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import Nav from 'react-bootstrap/NavDropdown';
 
 function Sidebar(props) {
   const {
@@ -46,12 +46,10 @@ function Sidebar(props) {
   
   return (
     <Container fluid>
-          <NavDropdown title="Categories" id="navbarScrollingDropdown">
-            <NavDropdown.Item onClick={ setFilters } className="category">All categories</NavDropdown.Item>
-            {categories.map((e) => (
-              <NavDropdown.Item onClick={ setFilters } className="category">{ e.strCategory }</NavDropdown.Item>
-            ))}
-          </NavDropdown>
+      <Nav.Item onClick={ setFilters } className="category">All categories</Nav.Item>
+      {categories.map((e) => (
+        <Nav.Item onClick={ setFilters } className="category">{ e.strCategory }</Nav.Item>
+      ))}
     </Container>
   )
 }
