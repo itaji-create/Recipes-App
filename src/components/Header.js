@@ -25,12 +25,9 @@ function Header(props) {
                 placement="end"
               >
                 <Offcanvas.Header closeButton>
-                  <Offcanvas.Title id={`offcanvasNavbarLabel-expand-lg`}>
-                    Filters
-                  </Offcanvas.Title>
+                   <SearchBar page={ pageName } />
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                  <SearchBar page={ pageName } />
                   <Nav className="justify-content-end flex-grow-1 pe-3">
                     <Sidebar page={ pageName } />
                   </Nav>
