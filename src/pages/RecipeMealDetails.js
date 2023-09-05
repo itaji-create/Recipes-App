@@ -25,47 +25,72 @@ function RecipeMealDetails() {
   return (
     <div>
       {details && (
-        <div className="recipe-details">
-          <img
-            data-testid="recipe-photo"
-            alt="element sas"
-            src={ details.strMealThumb }
-            style={ { width: '300px' } }
-          />
-          <div>
-            <h1 data-testid="recipe-title">{ details.strMeal }</h1>
-            <h5 data-testid="recipe-category">{ details.strCategory }</h5>
-            <div id="share-favorite">
-              <button
-                type="button"
-                data-testid="share-btn"
-                onClick={ () => copyToClipboard(pathname) }
-              >
-                Copy
-              </button>
-              <button
-                type="button"
-              >
-                <img
-                  data-testid="favorite-btn"
-                  alt="favorite"
-                />
-              </button>
-            </div>
-            <p>Ingredients</p>
-            <div className="ingredients">
-              {ingredients(details).map((ingredient, i) => (
-                details[ingredient] && (
-                  <p
-                    key={ ingredient }
-                    data-testid={ `${i}-ingredient-name-and-measure` }
-                    className="ingredients-itens"
+        <div className="container mt-5">
+          <div className="row">
+            <div className="col-md-6">
+              <img
+                data-testid="recipe-photo"
+                alt="element sas"
+                src={ details.strMealThumb }
+                className="img-fluid"
+              />
+              <div>
+                  <button
+                    type="button"
+                    data-testid="share-btn"
+                    className="btn"
+                    onClick={ () => copyToClipboard(pathname) }
                   >
-                    { `${details[ingredient]} --- ${details[measures(details)[i]]}` }
-                  </p>)
-              ))}
+                    Copy
+                  </button>
+                  <button
+                    type="button"
+                    className="btn"
+                  >
+                    <i className="fas fa-heart" />
+                    Favoritar
+                  </button>
+                </div>
             </div>
-            <div>
+            <div className="col-md-6">
+              <h1 className="mb-4" data-testid="recipe-title">{ details.strMeal }</h1>
+              <h5 data-testid="recipe-category">{ details.strCategory }</h5>
+              <div className="container mt-5">
+                <ul className="list-group">
+                  <li
+                    className="list-group-item"
+                  >
+                    <div className="row">
+                      <h5 className="col-sm-6">
+                        Ingredient
+                      </h5>
+                      <h5 className="col-sm-6">
+                        Quantity
+                      </h5>
+                    </div>
+                  </li>
+                  {ingredients(details).map((ingredient, i) => (
+                    details[ingredient] && (
+                        <li
+                          key={ ingredient }
+                          data-testid={ `${i}-ingredient-name-and-measure` }
+                          className="list-group-item"
+                        >
+                          <div className="row">
+                            <div className="col-sm-6">
+                              { details[ingredient] }
+                            </div>
+                            <div className="col-sm-6">
+                              { details[measures(details)[i]] }
+                            </div>
+                          </div>
+                        </li>
+                      )
+                  ))}
+                </ul>
+            </div>
+          </div>
+            <div className="alert alert-success">
               <p>Instructions</p>
               <p id="instructions" data-testid="instructions">{ details.strInstructions }</p>
               <a href={ details.strYoutube } data-testid="video">{ details.strYoutube }</a>
