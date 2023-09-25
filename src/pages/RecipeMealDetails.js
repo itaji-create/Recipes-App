@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Context from '../context/MyContext';
 import fetchFoods from '../services/fetchFoods';
@@ -7,11 +7,14 @@ import Footer from '../components/Footer';
 import copyToClipboard from '../utils/copyToClipboard';
 
 function RecipeMealDetails() {
+  const [videoId, setVideoId] = useState('');
   const { pathname } = useLocation();
   const {
     details,
     setDetails,
   } = useContext(Context);
+
+  console.log(videoId);
 
   const idNumbers = pathname
     .split('').filter((e) => (Number(e) || e === '0')).join('');
@@ -19,6 +22,9 @@ function RecipeMealDetails() {
   useEffect(() => {
     fetchFoods(`lookup.php?i=${idNumbers}`).then((data) => {
       setDetails(data[0]);
+      const url = new URL(data[0].strYoutube);
+      const id = new URLSearchParams(url.search).get("v");
+      setVideoId(id);
     });
   }, [idNumbers, setDetails]);
 
@@ -55,7 +61,7 @@ function RecipeMealDetails() {
             <div className="col-md-6">
               <h1 className="mb-4" data-testid="recipe-title">{ details.strMeal }</h1>
               <h5 data-testid="recipe-category">{ details.strCategory }</h5>
-              <div className="container mt-5">
+              <div className="container mt-5 mb-5">
                 <ul className="list-group">
                   <li
                     className="list-group-item"
@@ -90,10 +96,16 @@ function RecipeMealDetails() {
                 </ul>
             </div>
           </div>
-            <div className="alert alert-success">
+            <div className="alert alert-success mb-5">
               <p>Instructions</p>
-              <p id="instructions" data-testid="instructions">{ details.strInstructions }</p>
-              <a href={ details.strYoutube } data-testid="video">{ details.strYoutube }</a>
+              <p  className='text-center' id="instructions" data-testid="instructions">{ details.strInstructions }</p>
+              <div className='text-center'>
+                <iframe
+                  src={ `https://www.youtube.com/embed/${videoId}` }
+                  frameBorder="0"
+                  allowFullScreen
+                />
+              </div>
             </div>
           </div>
           {/* <div className="recomendation">
