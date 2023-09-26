@@ -7,6 +7,7 @@ function Instructions(props) {
       {videoId && (
         <div className='text-center'>
           <iframe
+            title="recipe"
             src={ `https://www.youtube.com/embed/${videoId}` }
             frameBorder="0"
             allowFullScreen
