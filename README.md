@@ -1,4 +1,4 @@
-# Boas vindas ao repositório do projeto de Front-End Recipes!
+# Boas vindas ao repositório do projeto de front-End Recipes App!
 
 <summary><strong>Link do projeto no Heroku</strong></summary><br />
 
