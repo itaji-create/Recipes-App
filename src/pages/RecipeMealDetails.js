@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import copyToClipboard from '../utils/copyToClipboard';
 import IngredientsTable from '../components/IngredientsTable';
 import Instructions from '../components/Instructions';
+import Header from '../components/Header';
 
 function RecipeMealDetails() {
   const [videoId, setVideoId] = useState('');
@@ -30,7 +31,8 @@ function RecipeMealDetails() {
   }, [idNumbers, setDetails]);
 
   return (
-    <div>
+    <div className="allPage">
+      <Header pageName="Recipe Details"/>
       {details && (
         <div className="container mt-5">
           <div className="row">

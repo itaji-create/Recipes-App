@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import copyToClipboard from '../utils/copyToClipboard';
 import IngredientsTable from '../components/IngredientsTable';
 import Instructions from '../components/Instructions';
+import Header from '../components/Header';
 
 function RecipeDrinkDetails() {
   const { pathname } = useLocation();
@@ -25,7 +26,8 @@ function RecipeDrinkDetails() {
   }, [idNumbers, setDetails, setFavoriteIcon]);
 
   return (
-    <div>
+    <div className="allPage">
+      <Header pageName="Recipe Details"/>
       {details && (
         <div className="container mt-5">
           <div className="row">

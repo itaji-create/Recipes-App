@@ -1,12 +1,15 @@
-
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 .allPage {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 720px;
   margin-top: 50px;
-  margin-bottom: 50px;
+  background-color: rgba(226, 247, 224, 0.377);
 }
 
 .allPage .explorer-item {
@@ -15,8 +18,7 @@
 
 .page-content {
   margin-right: -10px;
-  margin-bottom: 30px;
-  background-color: rgba(240, 236, 236, 0.377);
+  margin-bottom: 60px;
 }
 
 footer {
@@ -24,8 +26,10 @@ footer {
   display: flex;
   justify-content: space-between;
   position: fixed;
+  margin-top: 10px;
+  padding: 5px;
   width: 100%;
-  height: 40px;
+  height: 50px;
   background-color: rgb(150, 149, 149);
 }
 
@@ -62,11 +66,6 @@ footer {
   text-align: center;
 }
 
-#instructions {
-  margin-left: 10%;
-  margin-right: 10%;
-}
-
 .filters-input {
   display: flex;
 }
@@ -92,6 +91,10 @@ footer {
   margin-bottom: 10px;
 }
 
+.navbar-with-shadow {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Altere os valores conforme necessário */
+}
+
 @media (min-width: 700px) {
   .page-content {
     display: block;
@@ -105,12 +108,5 @@ footer {
     margin-right: 35px;
     margin-bottom: 10px;
   }
-  #instructions {
-    width: 500px;
-  }
-  .recipe-details {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-  }
+
 }

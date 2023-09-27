@@ -8,13 +8,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
 function Header(props) {
-  const { pageName, filters } = props
+  const { pageName, filters, href } = props
 
   return (
-    <Navbar bg="light" fixed={ 'top' } expand={'md'}>
+    <Navbar className="navbar-with-shadow" bg="light" fixed={ 'top' } expand={'md'} c>
       <Container fluid>
         {/* <img alt="profile icon" src={ profileIcon } /> */}
-        <Navbar.Brand href={ pageName }>{ pageName }</Navbar.Brand>
+        <Navbar.Brand href={ href }>{ pageName }</Navbar.Brand>
         {filters === 'true' ? (
           <>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-md`} />
