@@ -1,6 +1,6 @@
 # Boas vindas ao repositório do projeto de front-End Recipes App!
 
-<summary><strong>Link do projeto no Heroku</strong></summary><br />
+<summary><strong>Esse aplicativo está hospedado no Railway</strong></summary><br />
 
   - https://recipes-application.up.railway.app
 
