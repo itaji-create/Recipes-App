@@ -2,7 +2,7 @@
 
 <summary><strong>Link do projeto no Heroku</strong></summary><br />
 
-  - http://recipes-99app.herokuapp.com/
+  - https://recipes-application.up.railway.app
 
 <summary><strong> Iniciando o projeto</strong></summary><br />
 
