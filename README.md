@@ -36,22 +36,22 @@
 
 <h4>Neste projeto. Nele os usuários poderão:</h4>
 
-1. Fazer login
+- Explorar receitas de comidas ou bebidas.
 
-2. Explorar receitas de comidas ou bebidas.
+- Explorar receitas de comidas ou bebidas.
 
-3. Filtrar receitas por categoria.
+- Filtrar receitas por categoria.
 
-4. Ver detalhes de receita de comida ou bebida
+- Ver detalhes de receita de comida ou bebida
 
-5. Salvar receitas já feitas;
+- Salvar receitas já feitas;
 
-6. Salvar receitas na página de favoritos;
+- Salvar receitas na página de favoritos;
 
-7. Pesquisar receita por título;
+- Pesquisar receita por título;
 
-8. Explorar receitas de comidas por nacionalidade;
+- Explorar receitas de comidas por nacionalidade;
 
-9. Explorar receitas de comidas ou bebidas por ingrediente;
+- Explorar receitas de comidas ou bebidas por ingrediente;
 
-10. Receber uma receita de comida ou bebida misteriosa;
+- Receber uma receita de comida ou bebida misteriosa;
