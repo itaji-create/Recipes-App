@@ -10,13 +10,15 @@
     * `git clone git@github.com:itaji-create/recipes-app.git`
     * Entre na pasta do projeto;
     * Obs. caso não tenha o git em sua máquina faça o download do repositório;
-2. Instale as dependências:
+
+2. Na raix do projeto:
+   - Instale as dependências:
     * `npm install`
-3. Inicie o projeto:
+   - Inicie o projeto:
     * `npm start`
 
 
-<summary><strong>Configurações mínimas que sua máquina deve ter</strong></summary><br />
+<summary><strong>Configuração mínima que sua máquina deve ter</strong></summary><br />
 
 - Node
     * `deve ter versão igual ou superior à 16`
