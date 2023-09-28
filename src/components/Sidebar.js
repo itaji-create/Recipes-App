@@ -53,7 +53,7 @@ function Sidebar(props) {
       const fav = JSON.parse(localStorage.getItem('favoritesDrinks'));
       setFavorites(fav);
     }
-  }, [])
+  }, [page])
   
   return (
     <div>
