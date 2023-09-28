@@ -25,7 +25,7 @@ function ExploreFoods() {
         </Button>
         <Button
           data-testid="food-nationality-btn"
-          onClick={ () => navigate('/explore/foods/ingredients') }
+          onClick={ () => navigate('/explore/foods/nationalities') }
           variant="secondary"
           size="lg"
           className="p-3 m-2"
