@@ -3,15 +3,16 @@ import { useLocation } from 'react-router-dom';
 import Context from '../context/MyContext';
 import fetchDrinks from '../services/fetchDrinks';
 import Footer from '../components/Footer';
-import copyToClipboard from '../utils/copyToClipboard';
 import IngredientsTable from '../components/IngredientsTable';
 import Instructions from '../components/Instructions';
 import Header from '../components/Header';
+import { addDrinkToFavorites } from '../utils/addToFavorites';
+import copyToClipboard from '../utils/copyToClipboard';
 
 function RecipeDrinkDetails() {
   const { pathname } = useLocation();
 
-  const idNumbers = useLocation().pathname
+  const idNumbers = pathname
     .split('').filter((e) => (Number(e) || e === '0')).join('');
   const {
     details,
@@ -38,21 +39,22 @@ function RecipeDrinkDetails() {
                 src={ details.strDrinkThumb }
                 className="img-fluid"
               />
-              <div>
+              <div id="share-favorite">
                 <button
                   type="button"
                   data-testid="share-btn"
                   className="btn"
-                  onClick={ () => copyToClipboard(pathname) }
+                  onClick={ copyToClipboard }
                 >
-                  Copy
+                  Copy 📝
                 </button>
                 <button
                   type="button"
                   className="btn"
+                  onClick={ () => addDrinkToFavorites(details) }
                 >
                   <i className="fas fa-heart" />
-                  Favoritar
+                  Favorite ❤️
                 </button>
               </div>
             </div>
