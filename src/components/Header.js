@@ -11,7 +11,7 @@ function Header(props) {
   const { pageName, filters, href } = props
 
   return (
-    <Navbar className="navbar-with-shadow" bg="light" fixed={ 'top' } expand={'md'} c>
+    <Navbar className="navbar-with-shadow" bg="light" fixed={ 'top' } expand={'lp'} c>
       <Container fluid>
         {/* <img alt="profile icon" src={ profileIcon } /> */}
         <Navbar.Brand href={ href }>{ pageName }</Navbar.Brand>
