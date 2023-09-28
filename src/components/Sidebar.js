@@ -3,6 +3,8 @@ import Context from "../context/MyContext";
 import fetchDrinks from '../services/fetchDrinks';
 import fetchFoods from '../services/fetchFoods';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useEffect } from "react";
+import { useState } from "react";
 
 function Sidebar(props) {
   const {
@@ -12,6 +14,8 @@ function Sidebar(props) {
     setDrinks,
     setCategory,
   } = useContext(Context);
+
+  const [favorites, setFavorites] = useState([]);
 
   const { page } = props;
 
@@ -42,6 +46,16 @@ function Sidebar(props) {
     setSidebar(false);
   }
 
+  useEffect(() => {
+    if (page === "Foods") {
+      const fav = JSON.parse(localStorage.getItem('favoritesMeals'));
+      setFavorites(fav);
+    }
+    if (page === "Drinks") {
+      const fav = JSON.parse(localStorage.getItem('favoritesDrinks'));
+      setFavorites(fav);
+    }
+  }, [])
   
   return (
     <div>
@@ -50,6 +64,11 @@ function Sidebar(props) {
           {categories.map((e) => (
             <NavDropdown.Item onClick={ setFilters } className="category">{ e.strCategory }</NavDropdown.Item>
           ))}
+      </NavDropdown>
+      <NavDropdown title="Favorites" id="navbarScrollingDropdown">
+        {favorites.map((e) => (
+          <NavDropdown.Item href={ `${page}/${e.idMeal || e.idDrink }`} >{ e.strMeal || e.strDrink }</NavDropdown.Item>
+        ))}
       </NavDropdown>
     </div>
   )
