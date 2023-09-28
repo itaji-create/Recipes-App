@@ -1,10 +1,8 @@
-import React, { useContext } from "react";
-import Context from "../context/MyContext";
+import React, { useContext, useEffect, useState } from 'react';
+import Context from '../context/MyContext';
 import fetchDrinks from '../services/fetchDrinks';
 import fetchFoods from '../services/fetchFoods';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { useEffect } from "react";
-import { useState } from "react";
 
 function Sidebar(props) {
   const {
