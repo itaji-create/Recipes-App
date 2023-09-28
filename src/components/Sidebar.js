@@ -64,7 +64,7 @@ function Sidebar(props) {
           ))}
       </NavDropdown>
       <NavDropdown title="Favorites" id="navbarScrollingDropdown">
-        {favorites.map((e) => (
+        {favorites && favorites.map((e) => (
           <NavDropdown.Item href={ `${page}/${e.idMeal || e.idDrink }`} >{ e.strMeal || e.strDrink }</NavDropdown.Item>
         ))}
       </NavDropdown>
