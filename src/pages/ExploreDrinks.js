@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 import Button from 'react-bootstrap/Button';
 
 function ExploreDrinks() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   function exploreDrink() {
     fetchDrinks('random.php')
@@ -15,11 +15,12 @@ function ExploreDrinks() {
   return (
     <div className="allPage">
       <Header href="drinks" filters='false' pageName="Explore Drinks" />
-      <div className="explorer-buttons">
+      <div className="row text-center">
         <Button
           onClick={ () => navigate('/explore/drinks/ingredients') }
           data-testid="drink-ingredient-btn"
           variant="secondary"
+          className="p-3 m-2"
           size="lg"
         >
           By Ingredient
@@ -27,7 +28,8 @@ function ExploreDrinks() {
         <Button
           onClick={ exploreDrink }
           data-testid="drink-surprise-btn"
-          variant="secondary"
+          className="p-3 m-2"
+          variant="success"
           size="lg"
         >
           Surprise me!

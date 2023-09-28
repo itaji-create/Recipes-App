@@ -13,33 +13,34 @@ function ExploreFoods() {
   return (
     <div className="allPage">
       <Header pageName="Explore Foods" filters='false' />
-      <div className="page-content">
-        <Link to="/explore/foods/ingredients">
-          <Button
-            data-testid="food-ingredient-btn"
-            variant="secondary"
-            size="lg"
-          >
-            By Ingredient
-          </Button>
-        </Link>
-        <Link to="/explore/foods/nationalities">
-          <Button
-            data-testid="food-nationality-btn"
-            variant="secondary"
-            size="lg"
-          >
-            By Nationality
-          </Button>
-        </Link>
-          <Button
-            data-testid="food-surprise-btn"
-            onClick={ exploreMeal }
-            variant="secondary"
-            size="lg"
-          >
-            Surprise me!
-          </Button>
+      <div className="row text-center">
+        <Button
+          data-testid="food-ingredient-btn"
+          variant="primary"
+          onClick={ () => navigate('/explore/foods/ingredients') }
+          size="lg"
+          className="p-3 m-2"
+        >
+          By Ingredient
+        </Button>
+        <Button
+          data-testid="food-nationality-btn"
+          onClick={ () => navigate('/explore/foods/ingredients') }
+          variant="secondary"
+          size="lg"
+          className="p-3 m-2"
+        >
+          By Nationality
+        </Button>
+        <Button
+          data-testid="food-surprise-btn"
+          onClick={ exploreMeal }
+          variant="success"
+          size="lg"
+          className="p-3 m-2"
+        >
+          Surprise me!
+        </Button>
       </div>
       <Footer />
     </div>    
