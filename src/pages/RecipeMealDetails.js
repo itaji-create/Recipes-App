@@ -7,6 +7,7 @@ import copyToClipboard from '../utils/copyToClipboard';
 import IngredientsTable from '../components/IngredientsTable';
 import Instructions from '../components/Instructions';
 import Header from '../components/Header';
+import { addMealToFavorites } from '../utils/addToFavorites';
 
 function RecipeMealDetails() {
   const [videoId, setVideoId] = useState('');
@@ -15,8 +16,6 @@ function RecipeMealDetails() {
     details,
     setDetails,
   } = useContext(Context);
-
-  console.log(videoId);
 
   const idNumbers = pathname
     .split('').filter((e) => (Number(e) || e === '0')).join('');
@@ -43,21 +42,22 @@ function RecipeMealDetails() {
                 src={ details.strMealThumb }
                 className="img-fluid"
               />
-              <div>
+              <div id="share-favorite">
                 <button
                   type="button"
                   data-testid="share-btn"
                   className="btn"
-                  onClick={ () => copyToClipboard(pathname) }
+                  onClick={ copyToClipboard }
                 >
-                  Copy
+                  Copy 📝
                 </button>
                 <button
                   type="button"
                   className="btn"
+                  onClick={ () => addMealToFavorites(details) }
                 >
                   <i className="fas fa-heart" />
-                  Favoritar
+                  Favorite ❤️
                 </button>
               </div>
             </div>
