@@ -3,11 +3,11 @@ import { useLocation } from 'react-router-dom';
 import Context from '../context/MyContext';
 import fetchFoods from '../services/fetchFoods';
 import Footer from '../components/Footer';
-import copyToClipboard from '../utils/copyToClipboard';
 import IngredientsTable from '../components/IngredientsTable';
 import Instructions from '../components/Instructions';
 import Header from '../components/Header';
 import { addMealToFavorites } from '../utils/addToFavorites';
+import ShareFavoriteBtn from '../components/ShareFavoriteBtn';
 
 function RecipeMealDetails() {
   const [videoId, setVideoId] = useState('');
@@ -34,7 +34,7 @@ function RecipeMealDetails() {
       const id = new URLSearchParams(url.search).get("v");
       setVideoId(id);
       const favorites = JSON.parse(localStorage.getItem('favoritesMeals'));
-      if (favorites) setExist(favorites.some((e) => e.idMeal === data[0].idMeal))
+      if (favorites) setExist(favorites.some((e) => e.idMeal === data[0].idMeal));
     });
   }, [idNumbers, setDetails]);
 
@@ -51,23 +51,7 @@ function RecipeMealDetails() {
                 src={ details.strMealThumb }
                 className="img-fluid"
               />
-              <div id="share-favorite">
-                <button
-                  type="button"
-                  data-testid="share-btn"
-                  className="btn btn-outline-secondary m-1 p-1"
-                  onClick={ copyToClipboard }
-                >
-                  Copy 📝
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-outline-secondary m-1 p-1"
-                  onClick={ handleClick }
-                >
-                  { `Favorite ${exist ? '❤️' : '🤍'} `}
-                </button>
-              </div>
+              <ShareFavoriteBtn exist={ exist } handleClick={ handleClick } />
             </div>
             <div className="col-md-6">
               <h1 className="mb-4" data-testid="recipe-title">{ details.strMeal }</h1>
