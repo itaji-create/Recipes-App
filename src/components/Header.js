@@ -1,5 +1,4 @@
 import React from 'react';
-// import profileIcon from '../images/profileIcon.svg';
 import Sidebar from './Sidebar';
 import SearchBar from './SearchBar';
 import Container from 'react-bootstrap/Container';
@@ -11,12 +10,11 @@ function Header(props) {
   const { pageName, filters, href } = props
 
   return (
-    <Navbar className="navbar-with-shadow" bg="light" fixed={ 'top' } expand={'lp'} c>
+    <Navbar className="navbar-with-shadow" bg="light" fixed={ 'top' } expand={'lp'}>
       <Container fluid>
-        {/* <img alt="profile icon" src={ profileIcon } /> */}
         <Navbar.Brand href={ href }>{ pageName }</Navbar.Brand>
-        {filters === 'true' ? (
-          <>
+        {filters && (
+          <div>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-md`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-md`}
@@ -35,8 +33,8 @@ function Header(props) {
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
-          </>
-        ): <i />}
+          </div>
+        )}
       </Container>
     </Navbar>
   );

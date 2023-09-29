@@ -9,7 +9,7 @@ function Explore() {
 
   return (
     <div className="allPage">
-      <Header filters='false' pageName="Explore" />
+      <Header pageName="Explore" />
       <div className="row text-center">
         <Button
           variant="secondary"

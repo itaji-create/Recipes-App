@@ -12,7 +12,7 @@ function ExploreFoods() {
   }
   return (
     <div className="allPage">
-      <Header pageName="Explore Foods" filters='false' />
+      <Header pageName="Explore Foods" />
       <div className="row text-center">
         <Button
           data-testid="food-ingredient-btn"

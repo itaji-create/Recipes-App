@@ -59,8 +59,8 @@ function Sidebar(props) {
     <div>
       <NavDropdown title="Categories" id="navbarScrollingDropdown">
         <NavDropdown.Item onClick={ setFilters } className="category">All categories</NavDropdown.Item>
-          {categories.map((e) => (
-            <NavDropdown.Item onClick={ setFilters } className="category">{ e.strCategory }</NavDropdown.Item>
+          {categories.map((e, i) => (
+            <NavDropdown.Item key={ i } onClick={ setFilters } className="category">{ e.strCategory }</NavDropdown.Item>
           ))}
       </NavDropdown>
       <NavDropdown title="Favorites" id="navbarScrollingDropdown">

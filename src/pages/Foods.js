@@ -13,7 +13,7 @@ function Foods() {
 
   return (
     <div className='allPage'>
-      <Header href="foods" filters='true' pageName='Foods' />
+      <Header href="foods" filters={ true } pageName='Foods' />
       <div className="page-content">
         <div className="recipes-content">
           {meals.map((e) => (

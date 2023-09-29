@@ -1,9 +1,9 @@
 function Instructions(props) {
   const { videoId, details } = props;
   return (
-    <div gluid className="alert alert-success mb-5">
+    <div className="alert alert-success mb-5">
       <b>Instructions:</b>
-      <p  className="" data-testid="instructions">{ details.strInstructions }</p>
+      <p data-testid="instructions">{ details.strInstructions }</p>
       <br />
       {videoId && (
         <div className='text-center'>

@@ -14,7 +14,7 @@ function ExploreDrinks() {
   }
   return (
     <div className="allPage">
-      <Header href="drinks" filters='false' pageName="Explore Drinks" />
+      <Header href="drinks" pageName="Explore Drinks" />
       <div className="row text-center">
         <Button
           onClick={ () => navigate('/explore/drinks/ingredients') }

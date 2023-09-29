@@ -3,7 +3,6 @@ import { Route, Routes, useLocation, Navigate } from 'react-router-dom';
 import Foods from './pages/Foods';
 import Provider from './context/Provider';
 import Drinks from './pages/Drinks';
-import Profile from './pages/Profile';
 import RecipeMealDetails from './pages/RecipeMealDetails';
 import RecipeDrinkDetails from './pages/RecipeDrinkDetails';
 import Explore from './pages/Explore';
@@ -24,7 +23,6 @@ function App() {
         <Route exact path="/" element={ <Navigate to="/foods" /> } />
         <Route exact path="/foods" element={ <Foods /> } />
         <Route exact path="/drinks" element={ <Drinks /> } />
-        <Route exact path="/profile" element={ <Profile /> } />
         <Route exact path={ `foods/${idNumbers}` } element={ <RecipeMealDetails /> } />
         <Route exact path={ `drinks/${idNumbers}` } element={ <RecipeDrinkDetails /> } />
         <Route exact path="/explore" element={ <Explore /> } />

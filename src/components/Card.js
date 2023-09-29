@@ -20,10 +20,10 @@ function Card(props) {
 }
 
 Card.propTypes = {
-  strThumb: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  cardType: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  strThumb: PropTypes.string,
+  name: PropTypes.string,
+  cardType: PropTypes.string,
+  id: PropTypes.string,
 };
 
 export default Card;

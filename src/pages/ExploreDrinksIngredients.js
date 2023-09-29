@@ -19,7 +19,7 @@ function ExploreDrinksIngredients() {
   const ingredientsLoaded = ingredients.length > 0;
   return (
     <div className="allPage">
-      <Header filters='false' pageName="Explore Ingredients" />
+      <Header pageName="Explore Ingredients" />
       <div>
         {ingredientsLoaded && ingredients
           .map(({ strIngredient1 }) => (
