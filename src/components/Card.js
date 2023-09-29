@@ -7,14 +7,14 @@ function Card(props) {
   return (
     <Link
       className="card"
+      style={ { maxWidth: '150px' } }
       to={ `/${cardType}/${id}` }
     >
       <img
-        style={ { width: '150px' } }
         src={ strThumb }
         alt={ name }
       />
-      <p style={ { maxWidth: '150px' } }>{ name }</p>
+      <p>{ name }</p>
     </Link>
   );
 }

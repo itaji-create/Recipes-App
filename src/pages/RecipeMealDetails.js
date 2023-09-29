@@ -8,6 +8,10 @@ import Instructions from '../components/Instructions';
 import Header from '../components/Header';
 import { addMealToFavorites } from '../utils/addToFavorites';
 import ShareFavoriteBtn from '../components/ShareFavoriteBtn';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Importe o CSS do Bootstrap
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import Card from '../components/Card'
 
 function RecipeMealDetails() {
   const [videoId, setVideoId] = useState('');
@@ -16,12 +20,28 @@ function RecipeMealDetails() {
   const {
     details,
     setDetails,
+    drinks,
   } = useContext(Context);
 
   const handleClick = () => {
     addMealToFavorites(details)
     const favorites = JSON.parse(localStorage.getItem('favoritesMeals'));
     setExist(favorites.some((e) => e.idMeal === details.idMeal))
+  };
+
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 6,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 4,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 2,
+    },
   };
 
   const idNumbers = pathname
@@ -60,17 +80,17 @@ function RecipeMealDetails() {
             <Instructions details={ details } videoId={ videoId }/>
             </div>  
           </div>
-          {/* <div className="recomendation">
-            {drinks.slice(0, six).map((drink, i) => (
-              <p
-                key={ i }
-                data-testid={ `${i}-recomendation-card` }
-                className="recomendation-card"
-              >
-                { drink.strDrink }
-              </p>
+          <Carousel className="mb-5" responsive={responsive}>
+            {drinks.map((card, index) => (
+              <Card
+              key={ card.idMeal }
+              cardType="drinks"
+              id={ card.idDrink }
+              name={ card.strDrink }
+              strThumb={ card.strDrinkThumb }
+            />
             ))}
-          </div> */}
+          </Carousel>
         </div>
       )}
       <Footer />
