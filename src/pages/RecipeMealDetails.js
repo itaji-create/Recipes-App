@@ -11,11 +11,18 @@ import { addMealToFavorites } from '../utils/addToFavorites';
 
 function RecipeMealDetails() {
   const [videoId, setVideoId] = useState('');
+  const [exist, setExist] = useState(false);
   const { pathname } = useLocation();
   const {
     details,
     setDetails,
   } = useContext(Context);
+
+  const handleClick = () => {
+    addMealToFavorites(details)
+    const favorites = JSON.parse(localStorage.getItem('favoritesMeals'));
+    setExist(favorites.some((e) => e.idMeal === details.idMeal))
+  };
 
   const idNumbers = pathname
     .split('').filter((e) => (Number(e) || e === '0')).join('');
@@ -26,6 +33,8 @@ function RecipeMealDetails() {
       const url = new URL(data[0].strYoutube);
       const id = new URLSearchParams(url.search).get("v");
       setVideoId(id);
+      const favorites = JSON.parse(localStorage.getItem('favoritesMeals'));
+      if (favorites) setExist(favorites.some((e) => e.idMeal === data[0].idMeal))
     });
   }, [idNumbers, setDetails]);
 
@@ -46,18 +55,17 @@ function RecipeMealDetails() {
                 <button
                   type="button"
                   data-testid="share-btn"
-                  className="btn"
+                  className="btn btn-outline-secondary m-1 p-1"
                   onClick={ copyToClipboard }
                 >
                   Copy 📝
                 </button>
                 <button
                   type="button"
-                  className="btn"
-                  onClick={ () => addMealToFavorites(details) }
+                  className="btn btn-outline-secondary m-1 p-1"
+                  onClick={ handleClick }
                 >
-                  <i className="fas fa-heart" />
-                  Favorite ❤️
+                  { `Favorite ${exist ? '❤️' : '🤍'} `}
                 </button>
               </div>
             </div>
