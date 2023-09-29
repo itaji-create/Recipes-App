@@ -12,7 +12,7 @@ function Instructions(props) {
             src={ `https://www.youtube.com/embed/${videoId}` }
             frameBorder="0"
             height={ '197' }
-            width={ '350' }
+            width={ '340' }
             allowFullScreen
           />
         </div>
