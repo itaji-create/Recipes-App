@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Context from '../context/MyContext';
 import fetchDrinks from '../services/fetchDrinks';
@@ -7,24 +7,33 @@ import IngredientsTable from '../components/IngredientsTable';
 import Instructions from '../components/Instructions';
 import Header from '../components/Header';
 import { addDrinkToFavorites } from '../utils/addToFavorites';
-import copyToClipboard from '../utils/copyToClipboard';
+import ShareFavoriteBtn from '../components/ShareFavoriteBtn';
 
 function RecipeDrinkDetails() {
   const { pathname } = useLocation();
+  const [exist, setExist] = useState(false);
 
   const idNumbers = pathname
     .split('').filter((e) => (Number(e) || e === '0')).join('');
   const {
     details,
     setDetails,
-    setFavoriteIcon,
   } = useContext(Context);
+
+  const handleClick = () => {
+    addDrinkToFavorites(details)
+    console.log(details);
+    const favorites = JSON.parse(localStorage.getItem('favoritesDrinks'));
+    setExist(favorites.some((e) => e.idDrink === details.idDrink))
+  };
 
   useEffect(() => {
     fetchDrinks(`lookup.php?i=${idNumbers}`).then((data) => {
       setDetails(data[0]);
+      const favorites = JSON.parse(localStorage.getItem('favoritesDrinks'));
+      if (favorites) setExist(favorites.some((e) => e.idDrink === data[0].idDrink));
     });
-  }, [idNumbers, setDetails, setFavoriteIcon]);
+  }, [idNumbers, setDetails]);
 
   return (
     <div className="allPage">
@@ -39,24 +48,7 @@ function RecipeDrinkDetails() {
                 src={ details.strDrinkThumb }
                 className="img-fluid"
               />
-              <div id="share-favorite">
-                <button
-                  type="button"
-                  data-testid="share-btn"
-                  className="btn"
-                  onClick={ copyToClipboard }
-                >
-                  Copy 📝
-                </button>
-                <button
-                  type="button"
-                  className="btn"
-                  onClick={ () => addDrinkToFavorites(details) }
-                >
-                  <i className="fas fa-heart" />
-                  Favorite ❤️
-                </button>
-              </div>
+              <ShareFavoriteBtn exist={ exist } handleClick={ handleClick } />
             </div>
             <div className="col-md-6">
               <h1 className="mb-4" data-testid="recipe-title">{ details.strDrink }</h1>
