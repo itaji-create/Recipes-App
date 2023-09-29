@@ -82,6 +82,7 @@ function RecipeMealDetails() {
           <Carousel className="mb-5" responsive={responsive}>
             {drinks.map((card) => (
               <Card
+              key={ card.idDrink }
               cardType="drinks"
               id={ card.idDrink }
               name={ card.strDrink }

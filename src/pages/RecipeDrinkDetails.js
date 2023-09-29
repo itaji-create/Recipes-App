@@ -82,6 +82,7 @@ function RecipeDrinkDetails() {
               <Card
               key={ card.idMeal }
               cardType="foods"
+              id={ card.idMeal }
               name={ card.strMeal }
               strThumb={ card.strMealThumb }
             />
