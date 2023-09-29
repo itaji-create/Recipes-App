@@ -7,10 +7,17 @@ export const addMealToFavorites = (item) => {
     const exist = favorites.some((e) => e.idMeal === item.idMeal);
     if (!exist) {
       favorites.unshift(item);
+      localStorage.setItem('favoritesMeals', JSON.stringify(favorites));
+    } else {
+      const indexOf = favorites.findIndex((e) => e.idMeal === item.idMeal);
+      const favUpdated = [
+        ...favorites.slice(0, indexOf),
+        ...favorites.slice(indexOf + 1)
+      ];
+      localStorage.setItem('favoritesMeals', JSON.stringify(favUpdated));
     }
-    localStorage.setItem('favoritesMeals', JSON.stringify(favorites));
   }
-}
+};
 
 export const addDrinkToFavorites = (item) => {
   const favoritesStr = localStorage.getItem('favoritesDrinks');
@@ -21,7 +28,14 @@ export const addDrinkToFavorites = (item) => {
     const exist = favorites.some((e) => e.idDrink === item.idDrink);
     if (!exist) {
       favorites.unshift(item);
+      localStorage.setItem('favoritesDrinks', JSON.stringify(favorites));
+    } else {
+      const indexOf = favorites.findIndex((e) => e.idDrink === item.idDrink);
+      const favUpdated = [
+        ...favorites.slice(0, indexOf),
+        ...favorites.slice(indexOf + 1)
+      ];
+      localStorage.setItem('favoritesDrinks', JSON.stringify(favUpdated));
     }
-    localStorage.setItem('favoritesDrinks', JSON.stringify(favorites));
   }
-}
+};
