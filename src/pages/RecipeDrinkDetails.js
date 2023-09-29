@@ -8,6 +8,9 @@ import Instructions from '../components/Instructions';
 import Header from '../components/Header';
 import { addDrinkToFavorites } from '../utils/addToFavorites';
 import ShareFavoriteBtn from '../components/ShareFavoriteBtn';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import Card from '../components/Card';
 
 function RecipeDrinkDetails() {
   const { pathname } = useLocation();
@@ -18,6 +21,7 @@ function RecipeDrinkDetails() {
   const {
     details,
     setDetails,
+    meals,
   } = useContext(Context);
 
   const handleClick = () => {
@@ -25,6 +29,21 @@ function RecipeDrinkDetails() {
     console.log(details);
     const favorites = JSON.parse(localStorage.getItem('favoritesDrinks'));
     setExist(favorites.some((e) => e.idDrink === details.idDrink))
+  };
+
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 6,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 4,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 2,
+    },
   };
 
   useEffect(() => {
@@ -58,6 +77,16 @@ function RecipeDrinkDetails() {
               <IngredientsTable details={ details } />
               <Instructions details={ details } />
             </div>
+            <Carousel className="mb-5" responsive={responsive}>
+            {meals.map((card) => (
+              <Card
+              key={ card.idMeal }
+              cardType="foods"
+              name={ card.strMeal }
+              strThumb={ card.strMealThumb }
+            />
+            ))}
+          </Carousel>
           </div>
         </div>
       )}

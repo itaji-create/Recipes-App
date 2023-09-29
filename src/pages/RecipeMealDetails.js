@@ -8,10 +8,9 @@ import Instructions from '../components/Instructions';
 import Header from '../components/Header';
 import { addMealToFavorites } from '../utils/addToFavorites';
 import ShareFavoriteBtn from '../components/ShareFavoriteBtn';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Importe o CSS do Bootstrap
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import Card from '../components/Card'
+import Card from '../components/Card';
 
 function RecipeMealDetails() {
   const [videoId, setVideoId] = useState('');
@@ -81,9 +80,8 @@ function RecipeMealDetails() {
             </div>  
           </div>
           <Carousel className="mb-5" responsive={responsive}>
-            {drinks.map((card, index) => (
+            {drinks.map((card) => (
               <Card
-              key={ card.idMeal }
               cardType="drinks"
               id={ card.idDrink }
               name={ card.strDrink }
