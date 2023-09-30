@@ -28,7 +28,7 @@ function ExploreNationalite() {
   return (
     <div id="explore-nationalite" >
       <Header pageName="Explore Nationalite" />
-      <div id="filterNationalite">
+      <div className="btn w-100 mt-2">
         <Form.Select
           value={ selectValue }
           onChange={ handleSelect }
